@@ -1,65 +1,163 @@
 import Image from "next/image";
 
+const categories = [
+  "Tous", "Jeux vidéo", "Informatique", "Smartphones", "TV & Audio",
+  "Maison", "Cuisine", "Électroménager", "Bricolage", "Jouets", "Mode", "Beauté",
+];
+
+const deals = [
+  {
+    title: "Apple AirPods Pro 2 avec boîtier MagSafe",
+    category: "TV & Audio",
+    currentPrice: "169,99 €",
+    originalPrice: "279,99 €",
+    discount: "-39 %",
+    image: "https://m.media-amazon.com/images/I/61SUj2aKoEL._AC_SL1500_.jpg",
+  },
+  {
+    title: "SSD NVMe 2 To haute performance",
+    category: "Informatique",
+    currentPrice: "94,99 €",
+    originalPrice: "149,99 €",
+    discount: "-36 %",
+    image: "https://m.media-amazon.com/images/I/71p6SD4x+lL._AC_SL1500_.jpg",
+  },
+  {
+    title: "Manette sans fil compatible PC et console",
+    category: "Jeux vidéo",
+    currentPrice: "39,99 €",
+    originalPrice: "59,99 €",
+    discount: "-33 %",
+    image: "https://m.media-amazon.com/images/I/61O9tWR6WDS._AC_SL1500_.jpg",
+  },
+  {
+    title: "Robot aspirateur connecté",
+    category: "Maison",
+    currentPrice: "229,99 €",
+    originalPrice: "349,99 €",
+    discount: "-34 %",
+    image: "https://m.media-amazon.com/images/I/71yY0bE0x-L._AC_SL1500_.jpg",
+  },
+];
+
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+    <main>
+      <header className="site-header">
+        <div className="container header-inner">
+          <a href="#" className="brand">
+            <Image src="/logo-alertebonplan.png" alt="Logo AlerteBonPlan" width={84} height={84} priority />
+            <div>
+              <strong>AlerteBonPlan</strong>
+              <span>Les meilleures promos Amazon, en temps réel</span>
+            </div>
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          <nav className="header-actions">
+            <a className="ghost-button" href="#categories">Catégories</a>
+            <a className="telegram-button" href="#">Rejoindre Telegram</a>
+          </nav>
         </div>
-      </main>
-    </div>
+      </header>
+
+      <section className="hero">
+        <div className="container hero-grid">
+          <div className="hero-copy">
+            <span className="eyebrow">Bons plans vérifiés</span>
+            <h1>Les meilleurs prix,<span> détectés à l’instant.</span></h1>
+            <p>
+              Retrouvez les promotions Amazon publiées en temps réel,
+              classées par catégorie et accessibles en un clic.
+            </p>
+            <div className="hero-actions">
+              <a className="primary-button" href="#deals">Voir les bons plans</a>
+              <a className="secondary-button" href="#">Telegram</a>
+            </div>
+            <div className="stats">
+              <div><strong>100 %</strong><span>automatisé</span></div>
+              <div><strong>24/7</strong><span>surveillance</span></div>
+              <div><strong>Amazon</strong><span>liens directs</span></div>
+            </div>
+          </div>
+          <div className="hero-visual">
+            <div className="logo-orbit" />
+            <Image src="/logo-alertebonplan.png" alt="AlerteBonPlan" width={560} height={560} priority className="hero-logo" />
+          </div>
+        </div>
+      </section>
+
+      <section className="search-section">
+        <div className="container">
+          <div className="search-panel">
+            <label htmlFor="search">Rechercher un bon plan</label>
+            <div className="search-row">
+              <input id="search" type="search" placeholder="Ex. AirPods, SSD, PS5, aspirateur…" />
+              <button type="button">Rechercher</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="categories" className="categories-section">
+        <div className="container">
+          <div className="section-heading">
+            <div><span className="eyebrow">Navigation rapide</span><h2>Catégories</h2></div>
+            <p>Filtre les offres selon ce que tu recherches.</p>
+          </div>
+          <div className="category-list">
+            {categories.map((category, index) => (
+              <button type="button" className={index === 0 ? "category active" : "category"} key={category}>
+                {category}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="deals" className="deals-section">
+        <div className="container">
+          <div className="section-heading">
+            <div><span className="eyebrow">Mis à jour automatiquement</span><h2>Derniers bons plans</h2></div>
+            <a href="#" className="see-all">Voir toutes les offres →</a>
+          </div>
+          <div className="deals-grid">
+            {deals.map((deal) => (
+              <article className="deal-card" key={deal.title}>
+                <div className="deal-image-wrap">
+                  <span className="discount-badge">{deal.discount}</span>
+                  <img src={deal.image} alt={deal.title} className="deal-image" />
+                </div>
+                <div className="deal-content">
+                  <div className="deal-meta"><span>{deal.category}</span><span className="verified">Vérifié</span></div>
+                  <h3>{deal.title}</h3>
+                  <div className="price-row"><strong>{deal.currentPrice}</strong><span>{deal.originalPrice}</span></div>
+                  <a className="amazon-button" href="#">Voir l’offre Amazon</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="telegram-cta">
+        <div className="container telegram-card">
+          <div>
+            <span className="eyebrow">Ne rate aucune baisse de prix</span>
+            <h2>Rejoins AlerteBonPlan sur Telegram</h2>
+            <p>Reçois les meilleures promotions directement sur ton téléphone, dès leur détection.</p>
+          </div>
+          <a href="#" className="telegram-button large">Rejoindre le canal</a>
+        </div>
+      </section>
+
+      <footer>
+        <div className="container footer-inner">
+          <div className="footer-brand">
+            <Image src="/logo-alertebonplan.png" alt="" width={58} height={58} />
+            <div><strong>AlerteBonPlan</strong><span>Promotions Amazon en temps réel</span></div>
+          </div>
+          <p>Certains liens peuvent être affiliés. Le prix reste identique pour l’acheteur.</p>
+        </div>
+      </footer>
+    </main>
   );
 }
